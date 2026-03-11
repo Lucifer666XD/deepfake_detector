@@ -1,0 +1,80 @@
+# Core Dependencies
+numpy==1.24.3
+pandas==2.0.3
+matplotlib==3.7.2
+seaborn==0.12.2
+pillow==10.0.0
+
+# Deep Learning - PyTorch (Primary framework)
+torch==2.0.1
+torchvision==0.15.2
+
+# Note: TensorFlow removed to avoid dependency conflicts
+# This project uses PyTorch as the primary framework
+# If you need TensorFlow later, install separately with:
+# pip install tensorflow==2.15.0
+
+# Computer Vision
+opencv-python==4.8.0.76
+scikit-image==0.21.0
+
+# Machine Learning
+scikit-learn==1.3.0
+scipy==1.11.1
+
+# API Framework
+flask==2.3.3
+flask-cors==4.0.0
+# FastAPI/Pydantic - compatible versions
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+
+# Data Processing
+tqdm==4.66.1
+h5py==3.9.0
+
+# Image Processing & Augmentation
+albumentations==1.3.1
+imgaug==0.4.0
+
+# Model Utilities
+timm==0.9.7  # PyTorch Image Models
+efficientnet-pytorch==0.7.1
+
+# Visualization
+plotly==5.16.1
+
+# Configuration
+pyyaml==6.0.1
+python-dotenv==1.0.0
+
+# Testing
+pytest==7.4.0
+pytest-cov==4.1.0
+
+# Audio Processing (for partial implementation)
+librosa==0.10.1
+soundfile==0.12.1
+
+# Utilities
+requests==2.31.0
+python-multipart==0.0.6
+
+# Model Serving (optional - comment out if issues)
+# onnx==1.15.0
+# onnxruntime==1.16.0
+
+# Logging
+loguru==0.7.0
+
+# Progress bars
+rich==13.5.2
+
+# Jupyter (for notebooks)
+jupyter==1.0.0
+ipywidgets==8.1.0
+notebook==7.0.2
+
+# Explicit typing-extensions to resolve conflicts
+typing-extensions>=4.6.1

@@ -1,0 +1,66 @@
+# Training Configuration
+
+# Data Settings
+data:
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+  image_size: 224
+  batch_size: 32
+  num_workers: 4
+
+# Model Settings
+model:
+  architecture: "efficientnet_b0"  # Options: efficientnet_b0, resnet50, vit_base
+  pretrained: true
+  num_classes: 2  # Real vs Fake
+  dropout_rate: 0.3
+  
+# Training Settings
+training:
+  epochs: 3
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: "adam"  # Options: adam, sgd, adamw
+  scheduler: "cosine"  # Options: cosine, step, plateau
+  early_stopping_patience: 3
+  checkpoint_path: "data/models/checkpoints"
+  
+# Data Augmentation
+augmentation:
+  use_augmentation: true
+  horizontal_flip: true
+  vertical_flip: false
+  rotation_range: 15
+  zoom_range: 0.1
+  brightness_range: [0.8, 1.2]
+  contrast_range: [0.8, 1.2]
+  
+# Loss and Metrics
+training_params:
+  loss_function: "cross_entropy"  # Options: cross_entropy, focal_loss
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_score"
+    - "auc_roc"
+    
+# Hardware
+hardware:
+  device: "cuda"  # Options: cuda, cpu
+  mixed_precision: true
+  
+# Logging
+logging:
+  log_dir: "logs"
+  tensorboard: true
+  save_frequency: 1  # Save model every N epochs
+  
+# Inference
+inference:
+  confidence_threshold: 0.5
+  batch_size: 1
+  tta: false  # Test Time Augmentation
