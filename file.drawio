@@ -1,0 +1,167 @@
+<mxfile host="65bd71144e">
+    <diagram name="Deepfake Detection ER Diagram" id="deepfake-er">
+        <mxGraphModel dx="379" dy="333" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="config-entity" value="Config" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="40" width="200" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="config-attrs" value="- config_path: String&#xa;- config: Dict&#xa;&#xa;Attributes:&#xa;• data settings&#xa;• model settings&#xa;• training params&#xa;• augmentation&#xa;• hardware config&#xa;• logging config" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="config-entity" vertex="1">
+                    <mxGeometry y="26" width="200" height="164" as="geometry"/>
+                </mxCell>
+                <mxCell id="model-entity" value="DeepfakeDetector" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="40" width="220" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="model-attrs" value="- architecture: String&#xa;- num_classes: Integer&#xa;- pretrained: Boolean&#xa;- dropout_rate: Float&#xa;- backbone: Module&#xa;- classifier: Sequential&#xa;&#xa;Supported:&#xa;• EfficientNet (B0-B7)&#xa;• ResNet (50, 101)&#xa;• Vision Transformer&#xa;• ConvNeXt" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="model-entity" vertex="1">
+                    <mxGeometry y="26" width="220" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="dataset-entity" value="DeepfakeDataset" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="40" width="200" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="dataset-attrs" value="- data_dir: Path&#xa;- image_size: Integer&#xa;- mode: String&#xa;- transform: Compose&#xa;- image_paths: List&#xa;- labels: List&#xa;&#xa;Modes:&#xa;• train&#xa;• validation&#xa;• test" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="dataset-entity" vertex="1">
+                    <mxGeometry y="26" width="200" height="164" as="geometry"/>
+                </mxCell>
+                <mxCell id="image-entity" value="Image" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="40" width="160" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="image-attrs" value="- file_path: String&#xa;- label: Integer&#xa;- size: Tuple&#xa;- format: String&#xa;&#xa;Labels:&#xa;• 0 = Real&#xa;• 1 = Fake&#xa;&#xa;Formats:&#xa;• JPG, PNG&#xa;• WEBP" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="image-entity" vertex="1">
+                    <mxGeometry y="26" width="160" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="checkpoint-entity" value="ModelCheckpoint" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="300" width="220" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="checkpoint-attrs" value="- model_state_dict: Dict&#xa;- optimizer_state_dict: Dict&#xa;- epoch: Integer&#xa;- loss: Float&#xa;- accuracy: Float&#xa;- timestamp: DateTime&#xa;&#xa;Types:&#xa;• best_checkpoint.pth&#xa;• latest_checkpoint.pth" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="checkpoint-entity" vertex="1">
+                    <mxGeometry y="26" width="220" height="154" as="geometry"/>
+                </mxCell>
+                <mxCell id="prediction-entity" value="PredictionResult" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="300" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="prediction-attrs" value="- prediction: String&#xa;- confidence: Float&#xa;- probabilities: Dict&#xa;- inference_time: Float&#xa;&#xa;Predictions:&#xa;• REAL&#xa;• FAKE&#xa;&#xa;Includes:&#xa;• prob_real: Float&#xa;• prob_fake: Float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="prediction-entity" vertex="1">
+                    <mxGeometry y="26" width="200" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="api-entity" value="APIRequest" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="540" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="api-attrs" value="- endpoint: String&#xa;- method: String&#xa;- image_data: Binary&#xa;- timestamp: DateTime&#xa;&#xa;Endpoints:&#xa;• /api/detect/image&#xa;• /api/detect/batch&#xa;• /api/health" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="api-entity" vertex="1">
+                    <mxGeometry y="26" width="200" height="134" as="geometry"/>
+                </mxCell>
+                <mxCell id="training-entity" value="TrainingSession" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="300" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="training-attrs" value="- epochs: Integer&#xa;- learning_rate: Float&#xa;- batch_size: Integer&#xa;- optimizer: String&#xa;- scheduler: String&#xa;- device: String&#xa;&#xa;Metrics:&#xa;• train_loss&#xa;• val_loss&#xa;• accuracy&#xa;• precision, recall" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="training-entity" vertex="1">
+                    <mxGeometry y="26" width="200" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="augmentation-entity" value="DataAugmentation" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="300" width="160" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="augmentation-attrs" value="Transforms:&#xa;• Resize&#xa;• RandomFlip&#xa;• RandomRotation&#xa;• ColorJitter&#xa;• Normalize&#xa;&#xa;Modes:&#xa;• Training: Full&#xa;• Val/Test: Basic" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="augmentation-entity" vertex="1">
+                    <mxGeometry y="26" width="160" height="134" as="geometry"/>
+                </mxCell>
+                <mxCell id="config-model-rel" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" parent="1" source="config-entity" target="model-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="config-model-label" value="configures" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="config-model-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="5" y="-9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="model-checkpoint-rel" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" parent="1" source="model-entity" target="checkpoint-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="model-checkpoint-label" value="saves to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="model-checkpoint-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="-21" y="-5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="dataset-image-rel" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" parent="1" source="dataset-entity" target="image-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dataset-image-label" value="contains (1:N)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="dataset-image-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="5" y="-9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="model-prediction-rel" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.25;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" parent="1" source="model-entity" target="prediction-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="model-prediction-label" value="generates" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="model-prediction-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="15" y="-19" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="api-prediction-rel" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" parent="1" source="api-entity" target="prediction-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="api-prediction-label" value="returns" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="api-prediction-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="-21" y="10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="config-training-rel" value="" style="endArrow=classic;html=1;exitX=1;exitY=1;entryX=0;entryY=0.25;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" parent="1" source="config-entity" target="training-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="config-training-label" value="configures" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="config-training-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="-45" y="-10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="training-model-rel" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0.75;entryY=1;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;dashed=1;" parent="1" source="training-entity" target="model-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="training-model-label" value="trains" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="training-model-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="21" y="5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="training-dataset-rel" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.75;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" parent="1" source="training-entity" target="dataset-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="training-dataset-label" value="uses" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="training-dataset-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="-10" y="-19" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="training-checkpoint-rel" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.5;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" parent="1" source="training-entity" target="checkpoint-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="training-checkpoint-label" value="creates" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="training-checkpoint-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="15" y="-9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="dataset-augmentation-rel" value="" style="endArrow=classic;html=1;exitX=1;exitY=1;entryX=0;entryY=0.25;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" parent="1" source="dataset-entity" target="augmentation-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dataset-augmentation-label" value="applies" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="dataset-augmentation-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="-15" y="-9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="image-augmentation-rel" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;dashed=1;" parent="1" source="image-entity" target="augmentation-entity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="image-augmentation-label" value="transformed by" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="image-augmentation-rel" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint x="31" y="-5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="title" value="Deepfake Detection System - Entity Relationship Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="330" y="750" width="540" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-box" value="Legend" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="540" width="220" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-content" value="Solid Line: Direct relationship&#xa;Dashed Line: Indirect/process&#xa;&#xa;Entity Colors:&#xa;• Blue: Configuration&#xa;• Green: ML Model&#xa;• Yellow: Data/Dataset&#xa;• Red/Pink: Images&#xa;• Purple: Storage&#xa;• Orange: API/Results" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="legend-box" vertex="1">
+                    <mxGeometry y="26" width="220" height="154" as="geometry"/>
+                </mxCell>
+                <mxCell id="flows-box" value="Key Workflows" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="540" width="280" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="flows-content" value="1. Training Flow:&#xa;   Config → TrainingSession → Dataset&#xa;   → Model → Checkpoint&#xa;&#xa;2. Inference Flow:&#xa;   APIRequest → Model → PredictionResult&#xa;&#xa;3. Data Processing:&#xa;   Image → DataAugmentation → Dataset" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="flows-box" vertex="1">
+                    <mxGeometry y="26" width="280" height="144" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
