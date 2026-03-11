@@ -135,10 +135,6 @@ Contributions are welcome! Please read our contributing guidelines first.
 
 MIT License
 
-## 👥 Authors
-
-Your Name
-
 ## 🙏 Acknowledgments
 
 - CIFAKE Dataset creators
