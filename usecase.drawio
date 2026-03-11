@@ -1,0 +1,196 @@
+<mxfile host="65bd71144e">
+    <diagram name="Use Case Diagram" id="usecase-diagram">
+        <mxGraphModel dx="1033" dy="907" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Use Case Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="350" y="20" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="system-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="120" width="780" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="user" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="200" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-label" value="User" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="105" y="290" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="data-scientist" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="450" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="ds-label" value="Data Scientist" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="85" y="540" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="api-consumer" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="680" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="api-label" value="API Consumer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="80" y="770" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="database" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="1150" y="300" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="db-label" value="Storage System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="1115" y="390" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="model-system" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="1150" y="600" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="model-label" value="ML Model" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="1130" y="690" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="authenticate" value="Authenticate" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="invalid-creds" value="Invalid credentials" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="upload-image" value="Upload image" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="detect-deepfake" value="Detect deepfake" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="view-results" value="View prediction results" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="220" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="batch-process" value="Batch process images" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="310" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="download-report" value="Download report" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="train-model" value="Train model" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="420" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="load-dataset" value="Load dataset" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="500" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="configure-train" value="Configure training parameters" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="400" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="validate-model" value="Validate model" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="510" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="save-checkpoint" value="Save checkpoint" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="460" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="load-model" value="Load model checkpoint" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="310" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="evaluate-perf" value="Evaluate performance" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="600" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="generate-metrics" value="Generate metrics" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="600" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="api-request" value="Send API request" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="710" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="parse-response" value="Parse JSON response" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="710" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="health-check" value="Health check" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="790" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="store-image" value="Store image data" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="store-results" value="Store prediction results" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="140" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="retrieve-model" value="Retrieve model weights" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="550" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="inference" value="Run inference" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="640" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn1" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="user" target="authenticate" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn2" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="user" target="upload-image" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn3" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="user" target="detect-deepfake" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn4" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="user" target="view-results" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn5" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="user" target="batch-process" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn6" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="user" target="download-report" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn7" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="data-scientist" target="train-model" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn8" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="data-scientist" target="validate-model" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn9" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="data-scientist" target="evaluate-perf" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn10" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="data-scientist" target="load-model" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn11" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="api-consumer" target="api-request" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn12" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;" parent="1" source="api-consumer" target="health-check" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn13" value="" style="endArrow=none;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;" parent="1" source="database" target="store-results" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn14" value="" style="endArrow=none;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;" parent="1" source="database" target="store-image" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn15" value="" style="endArrow=none;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;" parent="1" source="database" target="save-checkpoint" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn16" value="" style="endArrow=none;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;" parent="1" source="model-system" target="retrieve-model" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn17" value="" style="endArrow=none;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;" parent="1" source="model-system" target="inference" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel1" value="&lt;&lt;exclude&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;" parent="1" source="authenticate" target="invalid-creds" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel2" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;dashed=1;" parent="1" source="detect-deepfake" target="upload-image" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel3" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=1;entryX=0;entryY=0;dashed=1;edgeStyle=orthogonalEdgeStyle;" parent="1" source="detect-deepfake" target="inference" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel4" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;" parent="1" source="view-results" target="store-results" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel5" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=1;entryX=0;entryY=0;dashed=1;edgeStyle=orthogonalEdgeStyle;" parent="1" source="upload-image" target="store-image" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel6" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=1;entryX=0;entryY=0;dashed=1;" parent="1" source="train-model" target="load-dataset" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel7" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;" parent="1" source="train-model" target="configure-train" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel8" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=0;entryX=0;entryY=1;dashed=1;" parent="1" source="train-model" target="save-checkpoint" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel9" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;" parent="1" source="evaluate-perf" target="generate-metrics" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel10" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;" parent="1" source="api-request" target="parse-response" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel11" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;edgeStyle=orthogonalEdgeStyle;" parent="1" source="load-model" target="retrieve-model" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
