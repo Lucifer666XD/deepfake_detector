@@ -49,8 +49,8 @@ deepfake-detector/
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd deepfake-detector
+git clone https://github.com/Lucifer666XD/deepfake_detector.git
+cd deepfake_detector
 ```
 
 2. Create and activate virtual environment:
@@ -67,9 +67,9 @@ pip install -r requirements.txt
 ### Dataset Setup
 
 Download the recommended datasets:
-- CIFAKE: [Link to dataset]
-- DiffusionDB: [Link to dataset]
-- DIRE: [Link to dataset]
+- CIFAKE: (https://www.kaggle.com/datasets/birdy654/cifake-real-and-ai-generated-synthetic-images)
+- DiffusionDB: (https://github.com/poloclub/diffusiondb)
+- DIRE: (https://github.com/ZhendongWang6/DIRE)
 
 Place them in `data/raw/` directory.
 
@@ -126,17 +126,3 @@ pytest tests/
 ## 🔐 Integration with Social Media
 
 The API is designed to be easily integrated with social media platforms. See `docs/integration_guide.md` for detailed instructions.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our contributing guidelines first.
-
-## 📄 License
-
-MIT License
-
-## 🙏 Acknowledgments
-
-- CIFAKE Dataset creators
-- Research papers on deepfake detection
-- Open-source community
