@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Image Risk Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cyber-theme.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="grid-background"></div>
+    
+    <div class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="login-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h1>ACCESS REQUIRED</h1>
+                <p>Enter your credentials to continue</p>
+            </div>
+            
+            <form id="loginForm" method="POST" action="/login">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i> Username
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Enter your username" 
+                        required
+                        autocomplete="username"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter your password" 
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+                
+                <div class="remember-forgot">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember" id="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-sign-in-alt"></i> LOGIN
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Don't have an account? <a href="#">Sign up</a></p>
+                <p style="margin-top: 15px;">
+                    <a href="/"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Login form handling
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            // For demonstration purposes - replace with actual authentication
+            // In production, send credentials to backend for validation
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                    remember: remember
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Store session
+                    sessionStorage.setItem('user', username);
+                    // Redirect to app
+                    window.location.href = '/app';
+                } else {
+                    alert('Invalid credentials. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // For now, just redirect to app (remove this in production)
+                sessionStorage.setItem('user', username);
+                window.location.href = '/app';
+            });
+        });
+        
+        // Add glitch effect on title
+        const title = document.querySelector('.login-header h1');
+        setInterval(() => {
+            title.style.textShadow = `
+                ${Math.random() * 5}px ${Math.random() * 5}px 0 rgba(0, 255, 159, 0.8),
+                ${-Math.random() * 5}px ${-Math.random() * 5}px 0 rgba(0, 217, 255, 0.8)
+            `;
+            setTimeout(() => {
+                title.style.textShadow = '0 0 10px var(--cyber-primary), 0 0 20px var(--cyber-primary), 0 0 30px var(--cyber-primary)';
+            }, 50);
+        }, 3000);
+    </script>
+</body>
+</html>

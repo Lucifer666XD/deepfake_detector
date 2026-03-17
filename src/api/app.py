@@ -131,7 +131,9 @@ def predict_image(image_data):
         result = {
             'success': True,
             'prediction': prediction,
-            'confidence': float(confidence),
+            'confidence': float(confidence * 100),  # Convert to percentage
+            'real_prob': float(probabilities[0][0].item() * 100),  # Convert to percentage
+            'fake_prob': float(probabilities[0][1].item() * 100),  # Convert to percentage
             'probabilities': {
                 'real': float(probabilities[0][0].item()),
                 'fake': float(probabilities[0][1].item())
@@ -160,7 +162,39 @@ def predict_image(image_data):
 # Routes
 @app.route('/')
 def index():
-    """Render main page."""
+    """Render landing page."""
+    return render_template('landing.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """Render login page or handle login."""
+    if request.method == 'POST':
+        # In production, validate credentials against database
+        data = request.get_json()
+        # For now, accept any credentials
+        return jsonify({
+            'success': True,
+            'message': 'Login successful'
+        })
+    return render_template('login.html')
+
+
+@app.route('/app')
+def app_page():
+    """Render main detection app."""
+    return render_template('app.html')
+
+
+@app.route('/docs')
+def api_docs():
+    """Render API documentation page."""
+    return render_template('api_docs.html')
+
+
+@app.route('/old')
+def old_index():
+    """Render original index page."""
     return render_template('index.html')
 
 
