@@ -23,12 +23,18 @@ from src.utils.config import load_api_config
 from src.utils.logger import get_logger
 
 # Initialize Flask app
+# Serve React build (if exists) from frontend-react/dist
+react_build_path = Path(__file__).parent.parent.parent / 'frontend-react' / 'dist'
+
 app = Flask(
     __name__,
     template_folder='../../frontend/templates',
-    static_folder='../../frontend/static'
+    static_folder=str(react_build_path) if react_build_path.exists() else '../../frontend/static',
+    static_url_path=''
 )
-CORS(app)
+
+# CORS: allow React dev server on port 3000
+CORS(app, origins=['http://localhost:3000', 'http://127.0.0.1:3000', '*'])
 
 # Load configuration
 config = load_api_config()
@@ -159,43 +165,79 @@ def predict_image(image_data):
         }
 
 
-# Routes
-@app.route('/')
-def index():
-    """Render landing page."""
-    return render_template('landing.html')
+# ──── API Routes ────
 
-
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
-    """Render login page or handle login."""
-    if request.method == 'POST':
-        # In production, validate credentials against database
-        data = request.get_json()
-        # For now, accept any credentials
+    """
+    Handle user login (API-only: POST).
+    React frontend sends { username, password } as JSON.
+    Returns { success: bool, message: str }.
+    """
+    data = request.get_json()
+    username = data.get('username', '') if data else ''
+    password = data.get('password', '') if data else ''
+
+    # In production, validate credentials against database
+    # For now, accept any non-empty credentials
+    if username and password:
+        logger.info(f"Login successful for user: {username}")
         return jsonify({
             'success': True,
-            'message': 'Login successful'
+            'message': 'Login successful',
+            'user': username
         })
-    return render_template('login.html')
-
-
-@app.route('/app')
-def app_page():
-    """Render main detection app."""
-    return render_template('app.html')
-
-
-@app.route('/docs')
-def api_docs():
-    """Render API documentation page."""
-    return render_template('api_docs.html')
+    else:
+        return jsonify({
+            'success': False,
+            'message': 'Username and password are required'
+        }), 400
 
 
 @app.route('/old')
 def old_index():
-    """Render original index page."""
+    """Render original HTML template pages (legacy)."""
     return render_template('index.html')
+
+
+@app.route('/old/login')
+def old_login():
+    """Render old login template (legacy)."""
+    return render_template('login.html')
+
+
+@app.route('/old/app')
+def old_app():
+    """Render old app template (legacy)."""
+    return render_template('app.html')
+
+
+# ──── Catch-all: serve React SPA for client-side routes ────
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_react(path):
+    """
+    Serve the React SPA.
+    - If the path matches a static file in the build folder, serve it.
+    - Otherwise serve index.html so React Router can handle the route.
+    - Falls back to old templates if React build doesn't exist.
+    
+    In development, Vite dev server (port 3000) proxies /api/* and /login
+    to this Flask server (port 5000), so this catch-all is only active
+    when running the production build.
+    """
+    react_dist = Path(app.static_folder)
+    file_path = react_dist / path
+
+    if path and file_path.exists() and file_path.is_file():
+        return send_from_directory(str(react_dist), path)
+
+    index_file = react_dist / 'index.html'
+    if index_file.exists():
+        return send_from_directory(str(react_dist), 'index.html')
+
+    # Fallback to old templates if React build doesn't exist
+    return render_template('landing.html')
 
 
 @app.route('/api/health', methods=['GET'])

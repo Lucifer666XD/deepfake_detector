@@ -1,6 +1,104 @@
 <mxfile host="65bd71144e">
-    <diagram id="deepfake-detector-dfd" name="Data Flow Diagram">
-        <mxGraphModel dx="1213" dy="907" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="0">
+    <diagram id="level0-dfd" name="DFD-LEVEL 0">
+        <mxGraphModel dx="618" dy="499" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="l0-title" value="Level 0 DFD - Deepfake Detection System Context" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="300" y="20" width="800" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="l0-user1" value="End Users&#xa;(Video/Image Submission)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="100" y="300" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="l0-user2" value="Researchers/Dataset&#xa;Providers" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="100" y="500" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="l0-user3" value="ML Engineers&#xa;(System Admin)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="1100" y="400" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="l0-system" value="0.0&#xa;&#xa;Deepfake Detection&#xa;System" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="550" y="300" width="300" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="l0-flow1" value="Video/Image&#xa;Submission" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;strokeColor=#009900;strokeWidth=2;fontSize=12;fontColor=#009900;fontStyle=1" parent="1" source="l0-user1" target="l0-system" edge="1">
+                    <mxGeometry x="-0.0394" y="-24" width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="400" as="sourcePoint"/>
+                        <mxPoint x="450" y="350" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="390" y="394"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l0-flow2" value="Detection Results&#xa;(Real/Fake + Confidence)" style="endArrow=classic;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#009900;strokeWidth=2;fontSize=12;fontColor=#009900;fontStyle=1" parent="1" source="l0-system" target="l0-user1" edge="1">
+                    <mxGeometry x="0.1145" y="-30" width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="400" as="sourcePoint"/>
+                        <mxPoint x="450" y="350" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="440" y="340"/>
+                            <mxPoint x="400" y="340"/>
+                        </Array>
+                        <mxPoint x="30" y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l0-flow3" value="Raw Training Dataset&#xa;(Real/Fake Images)" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#009900;strokeWidth=2;fontSize=12;fontColor=#009900;fontStyle=1" parent="1" source="l0-user2" target="l0-system" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="600" as="sourcePoint"/>
+                        <mxPoint x="450" y="550" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l0-flow4" value="Performance Reports&#xa;&amp; Model Metrics" style="endArrow=classic;html=1;exitX=0;exitY=0.7;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;strokeColor=#009900;strokeWidth=2;fontSize=12;fontColor=#009900;fontStyle=1" parent="1" source="l0-system" target="l0-user2" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="600" as="sourcePoint"/>
+                        <mxPoint x="450" y="550" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="400" y="580"/>
+                            <mxPoint x="400" y="590"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l0-flow5" value="System Configuration&#xa;&amp; Model Parameters" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#009900;strokeWidth=2;fontSize=12;fontColor=#009900;fontStyle=1" parent="1" source="l0-user3" target="l0-system" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="900" y="400" as="sourcePoint"/>
+                        <mxPoint x="950" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l0-flow6" value="System Status&#xa;&amp; Logs" style="endArrow=classic;html=1;exitX=0.6;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#009900;strokeWidth=2;fontSize=12;fontColor=#009900;fontStyle=1" parent="1" source="l0-system" target="l0-user3" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="900" y="400" as="sourcePoint"/>
+                        <mxPoint x="950" y="400" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="900" y="660"/>
+                            <mxPoint x="1170" y="660"/>
+                            <mxPoint x="1170" y="480"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l0-legend_box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;strokeWidth=2;dashed=1" parent="1" vertex="1">
+                    <mxGeometry x="100" y="730" width="500" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="l0-legend_title" value="Legend - Level 0 DFD (Context Diagram)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="120" y="740" width="250" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="l0-legend_entity" value="External Entity" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" parent="1" vertex="1">
+                    <mxGeometry x="120" y="775" width="110" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="l0-legend_system" value="System (Process 0.0)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;aspect=fixed" parent="1" vertex="1">
+                    <mxGeometry x="260" y="773" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="l0-legend_flow" value="Data Flow" style="endArrow=classic;html=1;strokeColor=#009900;strokeWidth=2;fontSize=11;fontColor=#009900" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="370" y="790" as="sourcePoint"/>
+                        <mxPoint x="450" y="790" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l0-notes" value="• Shows the system as a single process (0.0)&#xa;• Identifies all external entities interacting with system&#xa;• Illustrates main data flows at system boundary&#xa;• Provides high-level context for detailed modeling" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666" parent="1" vertex="1">
+                    <mxGeometry x="610" y="730" width="600" height="90" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="deepfake-detector-dfd" name="DFD-LEVEL 1">
+        <mxGraphModel dx="618" dy="499" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>

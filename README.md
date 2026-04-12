@@ -96,6 +96,17 @@ python src/api/app.py
 
 The API will be available at `http://localhost:5000`
 
+### Running API + React Frontend Together
+
+From the project root, run:
+
+```bash
+npm install
+npm run dev
+```
+
+This starts the Python API (`run_api.py`) and the React frontend (`frontend-react`) at the same time.
+
 ### Using the Web Interface
 
 1. Start the API server
@@ -121,7 +132,6 @@ pytest tests/
 - Accuracy: TBD after training
 - Precision: TBD
 - Recall: TBD
-- F1-Score: TBD
 
 ## 🔐 Integration with Social Media
 

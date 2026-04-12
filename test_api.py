@@ -9,7 +9,7 @@ from pathlib import Path
 import sys
 
 # Configuration
-BASE_URL = "http://localhost:5000"
+BASE_URL = "http://localhost:3000"
 TEST_IMAGE_DIR = Path("data/processed/test")
 
 def print_header(text):
